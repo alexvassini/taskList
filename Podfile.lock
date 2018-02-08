@@ -1,0 +1,23 @@
+PODS:
+  - ObjectMapper (3.1.0)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - TransitionButton (0.3.0)
+
+DEPENDENCIES:
+  - ObjectMapper
+  - RealmSwift
+  - TransitionButton
+
+SPEC CHECKSUMS:
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
+
+PODFILE CHECKSUM: 33722beaf0faa29cc2f98a3e1a2718ce594cd14b
+
+COCOAPODS: 1.3.1
