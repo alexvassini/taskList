@@ -14,6 +14,9 @@
 		AC5303ED202BC0620003C0F4 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303EC202BC0620003C0F4 /* CategoryListViewController.swift */; };
 		AC5303EF202BC07D0003C0F4 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303EE202BC07D0003C0F4 /* TaskListViewController.swift */; };
 		AC5303F3202BC44E0003C0F4 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303F1202BC44E0003C0F4 /* CategoryCollectionViewCell.swift */; };
+		AC639154202CF62000657814 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC639153202CF62000657814 /* AddTaskViewController.swift */; };
+		AC639156202CFC6000657814 /* BG2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AC639155202CFC5F00657814 /* BG2.jpeg */; };
+		AC639158202D00D000657814 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC639157202D00D000657814 /* Extensions.swift */; };
 		ACAD05A42029149800262BCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD05A32029149800262BCF /* AppDelegate.swift */; };
 		ACAD05A92029149800262BCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACAD05A72029149800262BCF /* Main.storyboard */; };
 		ACAD05AB2029149800262BCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACAD05AA2029149800262BCF /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 		AC5303EC202BC0620003C0F4 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		AC5303EE202BC07D0003C0F4 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		AC5303F1202BC44E0003C0F4 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC639153202CF62000657814 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		AC639155202CFC5F00657814 /* BG2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG2.jpeg; sourceTree = "<group>"; };
+		AC639157202D00D000657814 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACAD05A02029149800262BCF /* nanoChallenge3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nanoChallenge3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACAD05A32029149800262BCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACAD05A82029149800262BCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 		AC5303E9202BB8BB0003C0F4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC639155202CFC5F00657814 /* BG2.jpeg */,
 				AC5303E7202BB8B60003C0F4 /* BG.jpg */,
 			);
 			path = Images;
@@ -144,6 +151,7 @@
 				ACAD060320291B4800262BCF /* UIColorExtension.swift */,
 				ACAD060B2029C8F200262BCF /* RealmUtils.swift */,
 				AC5303E5202BB86F0003C0F4 /* Constants.swift */,
+				AC639157202D00D000657814 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,6 +162,7 @@
 				AC5303EA202BC0290003C0F4 /* CoordinatorViewController.swift */,
 				AC5303EC202BC0620003C0F4 /* CategoryListViewController.swift */,
 				AC5303EE202BC07D0003C0F4 /* TaskListViewController.swift */,
+				AC639153202CF62000657814 /* AddTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +232,7 @@
 				AC5303E8202BB8B60003C0F4 /* BG.jpg in Resources */,
 				ACAD05AE2029149800262BCF /* LaunchScreen.storyboard in Resources */,
 				ACAD05AB2029149800262BCF /* Assets.xcassets in Resources */,
+				AC639156202CFC6000657814 /* BG2.jpeg in Resources */,
 				ACAD05A92029149800262BCF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,11 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5303ED202BC0620003C0F4 /* CategoryListViewController.swift in Sources */,
+				AC639154202CF62000657814 /* AddTaskViewController.swift in Sources */,
 				AC5303EF202BC07D0003C0F4 /* TaskListViewController.swift in Sources */,
 				ACAD060620291CB600262BCF /* Task.swift in Sources */,
 				ACAD060820291FF800262BCF /* Category.swift in Sources */,
 				ACAD05A42029149800262BCF /* AppDelegate.swift in Sources */,
 				ACAD060420291B4800262BCF /* UIColorExtension.swift in Sources */,
+				AC639158202D00D000657814 /* Extensions.swift in Sources */,
 				ACAD060A2029214D00262BCF /* DataModel.swift in Sources */,
 				AC5303EB202BC0290003C0F4 /* CoordinatorViewController.swift in Sources */,
 				AC5303F3202BC44E0003C0F4 /* CategoryCollectionViewCell.swift in Sources */,
