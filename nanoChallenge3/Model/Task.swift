@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Task {
+open class Task: Object {
   
-  var name: String?
-  var description: String?
+  var name: String = ""
   var isDone: Bool = false
+  var tags: [String] = []
+  var details: String = ""
   
 }
 

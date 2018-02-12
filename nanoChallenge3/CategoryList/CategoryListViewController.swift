@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import ReactiveCocoa
+import ReactiveSwift
 
 class CategoryListViewController: UIViewController {
 
   @IBOutlet weak var collectionView: UICollectionView!
   
+  //let model = DataModel.shared
+  let viewModel:CategoryListViewModeling = CategoryListViewModel()
+  var categoriesList:[Category] = []
+  
   override func viewDidLoad() {
         super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
-
+    bindData()
+    
         // Do any additional setup after loading the view.
     }
+  
+  func bindData(){
+    
+    let deallocSignalProducer = self.reactive.lifetime.ended.createProducer()
+    viewModel.categories.producer.take(until: deallocSignalProducer)
+    .startWithValues({ [weak self] list in
+      guard let weakSelf = self else { return }
+      weakSelf.categoriesList = list
+      weakSelf.collectionView.reloadData()
+    })
+    
+  }
 
 }
+
 
 extension CategoryListViewController: UICollectionViewDelegate {
   
@@ -33,12 +53,13 @@ extension CategoryListViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 10
+    return self.categoriesList.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCollectionViewCell
+    cell.titleLabel.text = self.categoriesList[indexPath.row].name
     
     return cell
     

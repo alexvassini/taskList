@@ -8,6 +8,9 @@ target 'nanoChallenge3' do
 pod 'RealmSwift'                             # Realm of the divine models.
 pod 'ObjectMapper'                           # Map dictionary to object (used for Realm).
 pod 'TransitionButton'
+pod 'IQKeyboardManagerSwift'
+pod 'ReactiveSwift'
+pod 'ReactiveCocoa'
 
   # Pods for nanoChallenge3
 

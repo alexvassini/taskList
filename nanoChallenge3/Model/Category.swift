@@ -7,14 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Category {
+open class Category: Object {
   
-  var tag: String = ""
-  var count: Int = 0
-  var taskList: [Task] = []
-  
-  
-  
+var name: String = ""
+var count: Int = 0
+var taskList: [Task] = []
   
 }

@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 import TransitionButton
-
+import ReactiveSwift
+import enum Result.NoError
 
 extension UIView {
   
@@ -29,4 +30,10 @@ extension UIView {
     self.clipsToBounds = false
   }
   
+}
+
+extension Signal {
+  func createProducer()  -> SignalProducer<(), NoError> {
+    return SignalProducer(self).map({_ in ()}).flatMapError({_ in SignalProducer.empty as SignalProducer<(), NoError>})
+  } 
 }
