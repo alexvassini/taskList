@@ -12,7 +12,6 @@ import RealmSwift
 open class Category: Object {
   
 var name: String = ""
-var count: Int = 0
 var taskList: [Task] = []
   
 }

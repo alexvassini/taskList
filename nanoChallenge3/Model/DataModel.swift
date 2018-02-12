@@ -13,18 +13,22 @@ import ReactiveSwift
 open class DataModel: Object {
   
   static let shared = DataModel()
-  
-  
-  var categoriesList = MutableProperty<[Category]>([])
 
+  var categoriesList = MutableProperty<[Category]>([])
+  private var taskList: [Task] = []
   //
 }
 
 
 extension DataModel {
   
-  func addTask(_ task: Task) {
-    
+  func addNewTask(_ task: Task){
+    taskList.append(task)
+    addTaskToCategoryList(task)
+  }
+  
+  fileprivate func addTaskToCategoryList(_ task: Task) {
+
     for taskTag in task.tags {
       
       var categoryExists = false
@@ -39,12 +43,12 @@ extension DataModel {
       }
       
       if !categoryExists {
-        setCategory(name: taskTag, task)
+        createNewCategory(name: taskTag, task)
       }
     }
   }
   
-  func setCategory(name: String, _ task: Task){
+  func createNewCategory(name: String, _ task: Task){
     let category = Category()
     category.name = name
     category.taskList.append(task)

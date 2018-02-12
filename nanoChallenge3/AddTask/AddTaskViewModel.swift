@@ -31,7 +31,7 @@ class AddTaskViewModel: AddTaskViewModeling  {
     if newTask.tags.isEmpty {
       newTask.tags.append("Uncategorized")
     }
-    dataModel.addTask(newTask)
+    dataModel.addNewTask(newTask)
   }
   
   func addTag(_ tag: String){
