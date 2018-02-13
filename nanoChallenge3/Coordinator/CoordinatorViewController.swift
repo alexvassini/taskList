@@ -9,25 +9,31 @@
 import UIKit
 import TransitionButton
 
+protocol TaskViewController {
+  
+  var viewModel: CoordinatorViewModeling? { get set }
+  
+}
+
 class CoordinatorViewController: UIViewController {
 
-  
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  let viewModel:CoordinatorViewModeling = CoordinatorViewModel()
 
-      //self.addTransitionButton()
-      
-        // Do any additional setup after loading the view.
+  override func viewDidLoad() {
+        super.viewDidLoad()
+    
+    childViewControllers.forEach { (viewController) in
+      if var vc = viewController as? TaskViewController {
+        vc.viewModel = viewModel
+      }
     }
+  }
   
   override func viewWillAppear(_ animated: Bool) {
     self.addTransitionButton()
   }
   
-  /**
-   Initialize tabbar's items
-   */
+  
   func addTransitionButton() {
     
     let taskButton = TransitionButton(frame: CGRect(x: self.view.center.x - 31, y: self.view.frame.size.height - 77.0, width: 62.0, height: 62.0))
@@ -46,14 +52,6 @@ class CoordinatorViewController: UIViewController {
   
   @objc func startTransition(_ button: TransitionButton){
     let fakeView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-//    fakeView.backgroundColor = .clear
-//    self.view.addSubview(fakeView)
-//    let fakeButton = UIButton(frame: CGRect(x: self.view.center.x - 31, y: self.view.frame.size.height - 77.5, width: 62.0, height: 62.0))
-//    fakeButton.backgroundColor = UIColor(r: 252, g: 254, b: 255, a: 1)
-//
-//    fakeButton.layer.cornerRadius = 31.0
-//    fakeButton.isEnabled = false
-//    self.view.addSubview(fakeButton)
     button.isUserInteractionEnabled = false
     button.backgroundColor = UIColor(r: 204, g: 71, b: 96, a: 0.5)
     button.startAnimation()

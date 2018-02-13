@@ -9,13 +9,13 @@
 import Foundation
 import ReactiveSwift
 
-public protocol CategoryListViewModeling {
+public protocol CoordinatorViewModeling {
   
   var categories: Property<[Category]> { get }
 
 }
 
-class CategoryListViewModel: CategoryListViewModeling  {
+class CoordinatorViewModel: CoordinatorViewModeling  {
   
   let dataModel = DataModel.shared
   

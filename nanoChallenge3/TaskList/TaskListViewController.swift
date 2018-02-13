@@ -8,12 +8,19 @@
 
 import UIKit
 
-class TaskListViewController: UIViewController {
+class TaskListViewController: UIViewController, TaskViewController {
 
+  var viewModel:CoordinatorViewModeling? {
+    didSet {
+      bindData()
+    }
+  }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
+  
+  func bindData() {
+    
+  }
 }

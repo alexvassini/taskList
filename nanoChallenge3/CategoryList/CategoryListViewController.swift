@@ -10,27 +10,28 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 
-class CategoryListViewController: UIViewController {
+class CategoryListViewController: UIViewController, TaskViewController {
 
   @IBOutlet weak var collectionView: UICollectionView!
   
   //let model = DataModel.shared
-  let viewModel:CategoryListViewModeling = CategoryListViewModel()
+  var viewModel:CoordinatorViewModeling? {
+    didSet {
+      bindData()
+    }
+  }
+  
   var categoriesList:[Category] = []
   
   override func viewDidLoad() {
         super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
-    bindData()
-    
-        // Do any additional setup after loading the view.
     }
   
   func bindData(){
-    
     let deallocSignalProducer = self.reactive.lifetime.ended.createProducer()
-    viewModel.categories.producer.take(until: deallocSignalProducer)
+    viewModel?.categories.producer.take(until: deallocSignalProducer)
     .startWithValues({ [weak self] list in
       guard let weakSelf = self else { return }
       weakSelf.categoriesList = list

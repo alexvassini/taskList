@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88AA50D08142A3A2D6C50DDA /* Pods_nanoChallenge3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308CEB6DD3E6E1D96C9367C1 /* Pods_nanoChallenge3.framework */; };
-		AC4D79152031D6AC002AB3DB /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D79142031D6AC002AB3DB /* CategoryListViewModel.swift */; };
+		AC4D79152031D6AC002AB3DB /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D79142031D6AC002AB3DB /* CoordinatorViewModel.swift */; };
 		AC4D791720322375002AB3DB /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D791620322375002AB3DB /* AddTaskViewModel.swift */; };
 		AC5303E6202BB86F0003C0F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303E5202BB86F0003C0F4 /* Constants.swift */; };
 		AC5303E8202BB8B60003C0F4 /* BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5303E7202BB8B60003C0F4 /* BG.jpg */; };
@@ -34,7 +34,7 @@
 		27D9ECC04164E9F49EC8E1AD /* Pods-nanoChallenge3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanoChallenge3.release.xcconfig"; path = "Pods/Target Support Files/Pods-nanoChallenge3/Pods-nanoChallenge3.release.xcconfig"; sourceTree = "<group>"; };
 		308CEB6DD3E6E1D96C9367C1 /* Pods_nanoChallenge3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nanoChallenge3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6C28AC1C8C81E3A9079479 /* Pods-nanoChallenge3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanoChallenge3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nanoChallenge3/Pods-nanoChallenge3.debug.xcconfig"; sourceTree = "<group>"; };
-		AC4D79142031D6AC002AB3DB /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
+		AC4D79142031D6AC002AB3DB /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
 		AC4D791620322375002AB3DB /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
 		AC5303E5202BB86F0003C0F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC5303E7202BB8B60003C0F4 /* BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG.jpg; sourceTree = "<group>"; };
@@ -91,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				AC5303EC202BC0620003C0F4 /* CategoryListViewController.swift */,
-				AC4D79142031D6AC002AB3DB /* CategoryListViewModel.swift */,
 			);
 			path = CategoryList;
 			sourceTree = "<group>";
@@ -193,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				AC5303EA202BC0290003C0F4 /* CoordinatorViewController.swift */,
+				AC4D79142031D6AC002AB3DB /* CoordinatorViewModel.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 				AC639158202D00D000657814 /* Extensions.swift in Sources */,
 				ACAD060A2029214D00262BCF /* DataModel.swift in Sources */,
 				AC5303EB202BC0290003C0F4 /* CoordinatorViewController.swift in Sources */,
-				AC4D79152031D6AC002AB3DB /* CategoryListViewModel.swift in Sources */,
+				AC4D79152031D6AC002AB3DB /* CoordinatorViewModel.swift in Sources */,
 				AC5303F3202BC44E0003C0F4 /* CategoryCollectionViewCell.swift in Sources */,
 				ACAD060C2029C8F200262BCF /* RealmUtils.swift in Sources */,
 				AC4D791720322375002AB3DB /* AddTaskViewModel.swift in Sources */,
