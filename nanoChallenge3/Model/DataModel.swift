@@ -14,7 +14,7 @@ open class DataModel {
   
   static let shared = DataModel()
   var categoriesList = MutableProperty<[Category]>([])
-  private var taskList: [Task] = []
+  fileprivate var taskList: [Task] = []
   
   public required init() {
     getTaskListFromRealm()
@@ -35,26 +35,24 @@ extension DataModel {
       let id = taskList.last?.id
       task.id = id! + 1
     }
+    //taskList.append(task)
     saveTask(task)
     addTaskToCategoryList(task)
   }
   
   fileprivate func addTaskToCategoryList(_ task: Task) {
 
+    
     for taskTag in task.tags {
+      print("taskTag: \(taskTag)")
+      //var categoryExists = false
       
-      var categoryExists = false
-      
-      for category in categoriesList.value {
-        
-        if category.name == taskTag{
-          
-          category.taskList.append(task)
-          categoryExists = true
-        }
+      if let index = categoriesList.value.index(where: { $0.name == taskTag }){
+        print("\(index)")
+        categoriesList.value[index].taskList.append(task)
       }
-      
-      if !categoryExists {
+      else
+      {
         createNewCategory(name: taskTag, task)
       }
     }
@@ -76,7 +74,7 @@ extension DataModel {
     do {
       let realm = try Realm()
       let result = Array(realm.objects(Task.self))
-      taskList = result.isEmpty ? [] : result
+      self.taskList = result.isEmpty ? [] : result
     } catch let err as NSError {
       print("Error get realm default path: \(err)")
     }

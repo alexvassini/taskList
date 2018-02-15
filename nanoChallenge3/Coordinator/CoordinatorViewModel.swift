@@ -32,6 +32,7 @@ class CoordinatorViewModel: CoordinatorViewModeling  {
  
   func setCategory(_ index: Int) {
     _taskList.value = dataModel.categoriesList.value[index].taskList
+    
   }
 }
 

@@ -35,9 +35,11 @@ class AddTaskViewModel: AddTaskViewModeling  {
   }
   
   func addTag(_ tag: String){
-    if !newTask.tags.contains(tag){
-      newTask.tags.append(tag)
+    var _tag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
+    _tag = _tag.trimmingCharacters(in: .punctuationCharacters)
+    if !newTask.tags.contains(_tag){
+      newTask.tags.append(_tag)
     }
   }
-  
+  //string.trimmingCharacters(in: .whitespaces)
 }

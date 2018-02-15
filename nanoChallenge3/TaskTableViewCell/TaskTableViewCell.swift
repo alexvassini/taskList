@@ -18,6 +18,12 @@ class TaskTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+  
+  func renderCell(_ task:Task ){
+    taskName.text = task.name
+    taskDetails.text = task.details
+    isDoneImage.image = task.isDone ? #imageLiteral(resourceName: "icDoneGreen"):#imageLiteral(resourceName: "icCancelRed")
+  }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
