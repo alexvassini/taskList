@@ -10,6 +10,8 @@
 		88AA50D08142A3A2D6C50DDA /* Pods_nanoChallenge3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308CEB6DD3E6E1D96C9367C1 /* Pods_nanoChallenge3.framework */; };
 		AC4D79152031D6AC002AB3DB /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D79142031D6AC002AB3DB /* CoordinatorViewModel.swift */; };
 		AC4D791720322375002AB3DB /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D791620322375002AB3DB /* AddTaskViewModel.swift */; };
+		AC4D791A20337BF5002AB3DB /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4D791820337BF5002AB3DB /* TaskTableViewCell.swift */; };
+		AC4D791B20337BF5002AB3DB /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC4D791920337BF5002AB3DB /* TaskTableViewCell.xib */; };
 		AC5303E6202BB86F0003C0F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303E5202BB86F0003C0F4 /* Constants.swift */; };
 		AC5303E8202BB8B60003C0F4 /* BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5303E7202BB8B60003C0F4 /* BG.jpg */; };
 		AC5303EB202BC0290003C0F4 /* CoordinatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5303EA202BC0290003C0F4 /* CoordinatorViewController.swift */; };
@@ -36,6 +38,8 @@
 		5B6C28AC1C8C81E3A9079479 /* Pods-nanoChallenge3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanoChallenge3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nanoChallenge3/Pods-nanoChallenge3.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4D79142031D6AC002AB3DB /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
 		AC4D791620322375002AB3DB /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		AC4D791820337BF5002AB3DB /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		AC4D791920337BF5002AB3DB /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		AC5303E5202BB86F0003C0F4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AC5303E7202BB8B60003C0F4 /* BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG.jpg; sourceTree = "<group>"; };
 		AC5303EA202BC0290003C0F4 /* CoordinatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC20AB8420352271008897A9 /* CategoryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC5303F1202BC44E0003C0F4 /* CategoryCollectionViewCell.swift */,
+			);
+			path = CategoryCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		AC4D79112031D653002AB3DB /* CategoryList */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +133,13 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		AC5303F0202BC4210003C0F4 /* Cells */ = {
+		AC5303F0202BC4210003C0F4 /* TaskTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				AC5303F1202BC44E0003C0F4 /* CategoryCollectionViewCell.swift */,
+				AC4D791820337BF5002AB3DB /* TaskTableViewCell.swift */,
+				AC4D791920337BF5002AB3DB /* TaskTableViewCell.xib */,
 			);
-			path = Cells;
+			path = TaskTableViewCell;
 			sourceTree = "<group>";
 		};
 		ACAD05972029149800262BCF = {
@@ -154,7 +167,8 @@
 				AC4D79122031D674002AB3DB /* TaskList */,
 				AC4D79112031D653002AB3DB /* CategoryList */,
 				AC5303E9202BB8BB0003C0F4 /* Images */,
-				AC5303F0202BC4210003C0F4 /* Cells */,
+				AC20AB8420352271008897A9 /* CategoryCollectionViewCell */,
+				AC5303F0202BC4210003C0F4 /* TaskTableViewCell */,
 				ACAD0602202919F800262BCF /* Coordinator */,
 				ACAD06012029194C00262BCF /* Utils */,
 				ACAD05B5202918B100262BCF /* Model */,
@@ -259,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4D791B20337BF5002AB3DB /* TaskTableViewCell.xib in Resources */,
 				AC5303E8202BB8B60003C0F4 /* BG.jpg in Resources */,
 				ACAD05AE2029149800262BCF /* LaunchScreen.storyboard in Resources */,
 				ACAD05AB2029149800262BCF /* Assets.xcassets in Resources */,
@@ -350,6 +365,7 @@
 				ACAD05A42029149800262BCF /* AppDelegate.swift in Sources */,
 				ACAD060420291B4800262BCF /* UIColorExtension.swift in Sources */,
 				AC639158202D00D000657814 /* Extensions.swift in Sources */,
+				AC4D791A20337BF5002AB3DB /* TaskTableViewCell.swift in Sources */,
 				ACAD060A2029214D00262BCF /* DataModel.swift in Sources */,
 				AC5303EB202BC0290003C0F4 /* CoordinatorViewController.swift in Sources */,
 				AC4D79152031D6AC002AB3DB /* CoordinatorViewModel.swift in Sources */,

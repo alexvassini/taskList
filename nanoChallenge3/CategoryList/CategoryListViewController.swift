@@ -45,6 +45,10 @@ class CategoryListViewController: UIViewController, TaskViewController {
 
 extension CategoryListViewController: UICollectionViewDelegate {
   
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    viewModel?.setCategory(indexPath.row)
+  }
+  
 }
 
 extension CategoryListViewController: UICollectionViewDataSource {

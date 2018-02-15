@@ -10,20 +10,32 @@ import Foundation
 import RealmSwift
 import ReactiveSwift
 
-open class DataModel: Object {
+open class DataModel {
   
   static let shared = DataModel()
-
   var categoriesList = MutableProperty<[Category]>([])
   private var taskList: [Task] = []
-  //
+  
+  public required init() {
+    getTaskListFromRealm()
+    for task in taskList {
+      addTaskToCategoryList(task)
+    }
+  }
+  
 }
-
 
 extension DataModel {
   
   func addNewTask(_ task: Task){
-    taskList.append(task)
+    if taskList.isEmpty{
+      task.id = 1
+    }
+    else {
+      let id = taskList.last?.id
+      task.id = id! + 1
+    }
+    saveTask(task)
     addTaskToCategoryList(task)
   }
   
@@ -54,55 +66,48 @@ extension DataModel {
     category.taskList.append(task)
     self.categoriesList.value.append(category)
   }
-  
-  
 }
 
+//Realm functions
 extension DataModel {
-//  func initalize() {
-//    self.categories = getCategoriesListFromRealm()
-//  }
-  
+
   // MARK: Realm
-  func getCategoriesListFromRealm() -> [Category] {
-    var categories = [Category]()
+ fileprivate func getTaskListFromRealm() {
     do {
       let realm = try Realm()
-      let result = realm.objects(Category.self)
-      // if result is empty then returns an empty array
-      for category in result {
-        categories.append(category)
-      }
+      let result = Array(realm.objects(Task.self))
+      taskList = result.isEmpty ? [] : result
     } catch let err as NSError {
       print("Error get realm default path: \(err)")
     }
-    return categories
   }
   
-  fileprivate func deleteAllRestaurant() {
+  fileprivate func deleteTask(_ taskId: Int) {
     do {
       let realm = try Realm()
       try realm.write({ () -> Void in
-        realm.delete(realm.objects(DataModel.self))
-        realm.delete(realm.objects(Category.self))
-        realm.delete(realm.objects(Task.self))
+        if let task = realm.object(ofType: Task.self, forPrimaryKey: taskId) {
+          if let index = taskList.index(of: task) {
+            taskList.remove(at: index)
+          }
+          realm.delete(task)
+        }
       })
-    } catch let err as NSError {
-      print("Error get realm default path: \(err)")
+    } catch let err as NSError{
+      print(err)
     }
   }
   
-  fileprivate func saveListRestaurant(_ list: [Category]) {
-    self.deleteAllRestaurant()
+  fileprivate func saveTask(_ task: Task) {
     do {
       let realm = try Realm()
       try realm.write({ () -> Void in
-        realm.add(list)
+        taskList.append(task)
+        realm.add(task, update: true)
       })
-    } catch let err as NSError {
-      print("Error get realm default path: \(err)")
+    } catch let err as NSError{
+      print(err)
     }
   }
-  
   
 }

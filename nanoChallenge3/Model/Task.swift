@@ -11,10 +11,14 @@ import RealmSwift
 
 open class Task: Object {
   
-  var name: String = ""
-  var isDone: Bool = false
-  var tags: [String] = []
-  var details: String = ""
+  @objc dynamic var name: String = ""
+  @objc dynamic var isDone: Bool = false
+  var tags = List<String>()
+  @objc dynamic var details: String = ""
+  @objc dynamic var id: Int = 0
   
+  override open static func primaryKey() -> String? {
+    return "id"
+  }
 }
 

@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import RealmSwift
 
-open class Category: Object {
+open class Category {
   
 var name: String = ""
 var taskList: [Task] = []

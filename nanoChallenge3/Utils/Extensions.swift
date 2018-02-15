@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import TransitionButton
 import ReactiveSwift
+import RealmSwift
 import enum Result.NoError
 
 extension UIView {
@@ -37,3 +38,4 @@ extension Signal {
     return SignalProducer(self).map({_ in ()}).flatMapError({_ in SignalProducer.empty as SignalProducer<(), NoError>})
   } 
 }
+
