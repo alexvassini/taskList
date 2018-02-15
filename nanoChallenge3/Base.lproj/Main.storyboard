@@ -108,6 +108,9 @@
                                             <constraint firstAttribute="width" constant="44" id="ncw-B7-IEw"/>
                                         </constraints>
                                         <state key="normal" image="icCancelWhite"/>
+                                        <connections>
+                                            <action selector="back:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RWa-ZT-qw1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qw6-H5-HVu">
                                         <rect key="frame" x="321" y="10" width="44" height="44"/>
@@ -115,6 +118,9 @@
                                             <constraint firstAttribute="width" constant="44" id="rni-pX-Ute"/>
                                         </constraints>
                                         <state key="normal" image="icForwardWhite"/>
+                                        <connections>
+                                            <action selector="nextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pg0-jD-l3m"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categorias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkg-Lq-gpb">
                                         <rect key="frame" x="74" y="19.5" width="227" height="26.5"/>
@@ -158,6 +164,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="vVD-k3-fJk" id="DJv-Io-tT8"/>
+                        <outlet property="forwardButton" destination="qw6-H5-HVu" id="wIR-af-C5W"/>
+                        <outlet property="scrollView" destination="Cuc-a5-Jnd" id="7tw-v4-N4W"/>
+                        <outlet property="titleLabel" destination="Nkg-Lq-gpb" id="fEp-kL-Ngs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,12 +16,19 @@ protocol TaskViewController {
 }
 
 class CoordinatorViewController: UIViewController {
-
+  
+  @IBOutlet weak var forwardButton: UIButton!
+  @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var titleLabel: UILabel!
+  
   let viewModel:CoordinatorViewModeling = CoordinatorViewModel()
 
+  @IBOutlet weak var scrollView: UIScrollView!
+  
   override func viewDidLoad() {
         super.viewDidLoad()
-    
+    scrollView.delegate = self
+    backButton.alpha = 0.0
     childViewControllers.forEach { (viewController) in
       if var vc = viewController as? TaskViewController {
         vc.viewModel = viewModel
@@ -32,7 +39,6 @@ class CoordinatorViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     self.addTransitionButton()
   }
-  
   
   func addTransitionButton() {
     
@@ -74,5 +80,41 @@ class CoordinatorViewController: UIViewController {
     })
   }
   
+  @IBAction func nextPage(_ sender: UIButton) {
+    moveToNextPage()
+  }
+  @IBAction func back(_ sender: UIButton) {
+    moveToNextPage()
+  }
   
+}
+
+extension CoordinatorViewController: UIScrollViewDelegate{
+  
+  func moveToNextPage (){
+    let pageWidth:CGFloat = self.scrollView.frame.width
+    let maxWidth:CGFloat = pageWidth * 2
+    let contentOffset:CGFloat = self.scrollView.contentOffset.x
+    
+    var slideToX = contentOffset + pageWidth
+    
+    if  contentOffset + pageWidth == maxWidth
+    {
+      slideToX = 0
+    }
+    self.scrollView.scrollRectToVisible(CGRect(x:slideToX, y:0, width:pageWidth, height:self.scrollView.frame.height), animated: true)
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let pageWidth:CGFloat = self.scrollView.frame.width
+    var contentOffset:CGFloat = self.scrollView.contentOffset.x > 0 ? self.scrollView.contentOffset.x : 0
+    contentOffset = contentOffset <= pageWidth ? self.scrollView.contentOffset.x : pageWidth
+ 
+    backButton.alpha = contentOffset/pageWidth
+    forwardButton.alpha = 1 - contentOffset/pageWidth
+    let titleAlphaOffset = (1 - 2 * (contentOffset/pageWidth))
+    titleLabel.alpha = abs(titleAlphaOffset)
+    titleLabel.text = contentOffset/pageWidth < 0.51 ? "Categorias" : "Tarefas"
+    
+  }
 }
