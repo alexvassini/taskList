@@ -44,11 +44,8 @@ extension DataModel {
 
     
     for taskTag in task.tags {
-      print("taskTag: \(taskTag)")
-      //var categoryExists = false
       
       if let index = categoriesList.value.index(where: { $0.name == taskTag }){
-        print("\(index)")
         categoriesList.value[index].taskList.append(task)
       }
       else

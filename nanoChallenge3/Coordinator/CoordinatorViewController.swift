@@ -8,6 +8,8 @@
 
 import UIKit
 import TransitionButton
+import ReactiveSwift
+import ReactiveCocoa
 
 protocol TaskViewController {
   
@@ -29,11 +31,25 @@ class CoordinatorViewController: UIViewController {
         super.viewDidLoad()
     scrollView.delegate = self
     backButton.alpha = 0.0
+    
     childViewControllers.forEach { (viewController) in
       if var vc = viewController as? TaskViewController {
         vc.viewModel = viewModel
+        
       }
     }
+    
+    bindData()
+  }
+  
+  func bindData() {
+    
+    let deallocSignalProducer = self.reactive.lifetime.ended.createProducer()
+    viewModel.selectedTaskList.producer.take(until: deallocSignalProducer)
+      .startWithValues({ [weak self] _ in
+        guard let weakSelf = self else { return }
+        weakSelf.moveToNextPage()
+      })
   }
   
   override func viewWillAppear(_ animated: Bool) {
