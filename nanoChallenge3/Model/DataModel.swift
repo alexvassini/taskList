@@ -61,6 +61,25 @@ extension DataModel {
     category.taskList.append(task)
     self.categoriesList.value.append(category)
   }
+  
+  func editTask(_ task: Task){
+    
+    do {
+      let realm = try Realm()
+      try realm.write({ () -> Void in
+        if let task = realm.object(ofType: Task.self, forPrimaryKey: task.id) {
+          if let index = taskList.index(of: task) {
+            task.isDone = !task.isDone
+            taskList[index] = task
+          }
+          realm.add(task, update: true)
+        }
+      })
+    } catch let err as NSError{
+      print(err)
+    }
+  }
+  
 }
 
 //Realm functions

@@ -25,6 +25,7 @@ class CoordinatorViewController: UIViewController {
   
   let viewModel:CoordinatorViewModeling = CoordinatorViewModel()
 
+  var tabBarTitle = "Tarefas"
   @IBOutlet weak var scrollView: UIScrollView!
   
   override func viewDidLoad() {
@@ -49,6 +50,11 @@ class CoordinatorViewController: UIViewController {
       .startWithValues({ [weak self] _ in
         guard let weakSelf = self else { return }
         weakSelf.moveToNextPage()
+      })
+    viewModel.title.producer.take(until: deallocSignalProducer)
+      .startWithValues({ [weak self] title in
+        guard let weakSelf = self else { return }
+        weakSelf.tabBarTitle = title
       })
   }
   
@@ -130,7 +136,7 @@ extension CoordinatorViewController: UIScrollViewDelegate{
     forwardButton.alpha = 1 - contentOffset/pageWidth
     let titleAlphaOffset = (1 - 2 * (contentOffset/pageWidth))
     titleLabel.alpha = abs(titleAlphaOffset)
-    titleLabel.text = contentOffset/pageWidth < 0.51 ? "Categorias" : "Tarefas"
+    titleLabel.text = contentOffset/pageWidth < 0.51 ? "Categorias" : self.tabBarTitle
     
   }
 }

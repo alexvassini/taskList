@@ -69,6 +69,11 @@ extension TaskListViewController: UITableViewDataSource {
 
 extension TaskListViewController: UITableViewDelegate {
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    viewModel?.editTask(taskList[indexPath.row])
+     tableView.reloadData()
+  }
+  
 }
 
 
